@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --v-primary: #0295ff;
+  --v-primary-dark: #0072d6;
+  --v-text: #16181d;
+  --v-text-secondary: #3a3f46;
+  --v-muted: #9aa2ab;
+  --v-bg-light: #f5f5f7;
+  --v-bg-card: #f6f7f9;
+  --v-border: #e6e9ee;
+  --v-border-soft: #ececf0;
+  --v-footer-bg: #0a0b0d;
+  --v-green: #2fae5a;
+  --v-orange: #f2951f;
+  --v-red: #e5342b;
+  --v-gold: #f5a623;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-poppins);
+  --color-background: #ffffff;
+  --color-foreground: #16181d;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Strip native date/time picker chrome */
+input[type="date"],
+input[type="time"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  padding: 0;
+  outline: none;
+  width: 100%;
+}
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
